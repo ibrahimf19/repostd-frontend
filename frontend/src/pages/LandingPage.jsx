@@ -11,21 +11,7 @@ const TEASER_ARCHETYPES = [
 
 export default function LandingPage({ onSubmitEmail }) {
   const [email, setEmail] = useState("");
-  const [counter, setCounter] = useState(12847);
   const [submitting, setSubmitting] = useState(false);
-
-  // Live counter: increment by 1–3 every 3–7 seconds
-  useEffect(() => {
-    let timeout;
-    const schedule = () => {
-      timeout = setTimeout(() => {
-        setCounter((c) => c + Math.floor(Math.random() * 3) + 1);
-        schedule();
-      }, 3000 + Math.random() * 4000);
-    };
-    schedule();
-    return () => clearTimeout(timeout);
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
